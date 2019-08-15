@@ -16,11 +16,19 @@ class CinderFreeNASCharm(
     mandatory_config = []
 
     def cinder_configuration(self):
-        volume_driver = ''
+        volume_driver = 'cinder.volume.drivers.ixsystems.iscsi.FreeNASISCSIDriver'
         driver_options = [
+            ('iscsi_helper', 'tgtadm'),
+            ('volume_dd_blocksize', self.config.get('volume-dd-blocksize')),
             ('volume_driver', volume_driver),
-            # Add config options that needs setting on cinder.conf
-        ]
+            ('ixsystems_login', self.config.get('nas-login')),
+            ('ixsystems_password', self.config.get('nas-password')),
+            ('ixsystems_server_hostname', self.config.get('nas-server-hostname')),
+            ('ixsystems_volume_backend_name', self.config.get('nas-volume-backend-name')),
+            ('ixsystems_iqn_prefix', self.config.get('nas-iqn-prefix')),
+            ('ixsystems_datastore_pool', self.config.get('nas-datastore-pool')),
+            ('ixsystems_vendor_name', self.config.get('nas-vendor-name')),
+            ('ixsystems_storage_protocol', self.config.get('nas-storage-protocol'))]
         return driver_options
 
 
