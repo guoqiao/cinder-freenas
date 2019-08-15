@@ -43,7 +43,27 @@ class TestCinderFreeNASCharm(test_utils.PatchHelper):
         self.assertEqual(charm.packages, ['python-cinder-freenas'])
 
     def test_cinder_configuration(self):
-        charm = self._patch_config_and_charm({'a': 'b'})
+        charm = self._patch_config_and_charm({
+            'volume-dd-blocksize': '1024',
+            'nas-login': 'root',
+            'nas-password': 'password',
+            'nas-server-hostname': '192.168.0.1',
+            'nas-volume-backend-name': 'iXsystems_FREENAS_Storage',
+            'nas-iqn-prefix': 'iqn.2005-10.org.freenas.ctl',
+            'nas-datastore-pool': 'vol1',
+            'nas-vendor-name': 'iXsystems',
+            'nas-storage-protocol': 'iscsi'})
         config = charm.cinder_configuration()  # noqa
-        # Add check here that configuration is as expected.
-        # self.assertEqual(config, {})
+        self.assertEqual(config, [
+            ('iscsi_helper', 'tgtadm'),
+            ('volume_dd_blocksize', '1024'),
+            ('volume_driver', 'cinder.volume.drivers.ixsystems.iscsi.FreeNASISCSIDriver'),
+            ('ixsystems_login', 'root'),
+            ('ixsystems_password', 'password'),
+            ('ixsystems_server_hostname', '192.168.0.1'),
+            ('ixsystems_volume_backend_name', 'iXsystems_FREENAS_Storage'),
+            ('ixsystems_iqn_prefix', 'iqn.2005-10.org.freenas.ctl'),
+            ('ixsystems_datastore_pool', 'vol1'),
+            ('ixsystems_vendor_name', 'iXsystems'),
+            ('ixsystems_storage_protocol', 'iscsi')])
+
