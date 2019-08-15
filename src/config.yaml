@@ -1,4 +1,40 @@
 options:
+  volume-dd-blocksize:
+    description: Block size volume should use
+    default: 512
+    type: int
+  nas-login:
+    description: username for accessing array
+    default:
+    type: string
+  nas-password:
+    description: password for accessing array
+    default:
+    type: string
+  nas-server-hostname:
+    description: hostname of array
+    default:
+    type: string
+  nas-volume-backend-name:
+    description: Backend volume name to use in cinder
+    default: iXsystems_FREENAS_Storage
+    type: string
+  nas-iqn-prefix:
+    description: IQN prefix for accessing pool
+    default:
+    type: string
+  nas-datastore-pool:
+    description: Datastore pool name to use from within array
+    default:
+    type: string
+  nas-vendor-name:
+    description: Vendor name
+    default: iXsystems
+    type: string
+  nas-storage-protocol:
+    description: Protocol to use when attaching volume (usually iscsi or NFS)
+    default: iscsi
+    type: string
   driver-source:
     type: string
     default:
