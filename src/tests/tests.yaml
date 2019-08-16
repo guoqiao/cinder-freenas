@@ -15,7 +15,7 @@ cinder-freenas:
     volume-dd-blocksize: 512
     nas-login: root
     nas-password: password
-    nas-server-hostname: 10.5.0.13
+    nas-server-hostname: 10.5.90.13
     nas-volume-backend-name: iXsystems_FREENAS_Storage
     nas-iqn-prefix: iqn.2005-10.org.freenas.ctl
     nas-datastore-pool: vol1

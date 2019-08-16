@@ -46,7 +46,7 @@ class CinderFreeNASTest(test_utils.OpenStackBaseTest):
                 'volume_driver': ['cinder.volume.drivers.ixsystems.iscsi.FreeNASISCSIDriver'],
                 'ixsystems_login': ['root'],
                 'ixsystems_password': ['password'],
-                'ixsystems_server_hostname': ['10.5.0.13'],
+                'ixsystems_server_hostname': ['10.5.90.13'],
                 'ixsystems_volume_backend_name': ['iXsystems_FREENAS_Storage'],
                 'ixsystems_iqn_prefix': ['iqn.2005-10.org.freenas.ctl'],
                 'ixsystems_datastore_pool': ['vol1'],
