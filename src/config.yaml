@@ -5,15 +5,15 @@ options:
     type: int
   nas-login:
     description: username for accessing array
-    default:
+    default: root
     type: string
   nas-password:
     description: password for accessing array
-    default:
+    default: password
     type: string
   nas-server-hostname:
     description: hostname of array
-    default:
+    default: 10.5.90.13
     type: string
   nas-volume-backend-name:
     description: Backend volume name to use in cinder
@@ -21,11 +21,11 @@ options:
     type: string
   nas-iqn-prefix:
     description: IQN prefix for accessing pool
-    default:
+    default: iqn.2005-10.org.freenas.ctl
     type: string
   nas-datastore-pool:
     description: Datastore pool name to use from within array
-    default:
+    default: vol1
     type: string
   nas-vendor-name:
     description: Vendor name
@@ -37,7 +37,7 @@ options:
     type: string
   driver-source:
     type: string
-    default:
+    default: ppa:gnuoy/cinder-xenial-ocata
     description: |
       Optional configuration to support use of additional sources such as:
         - ppa:myteam/ppa
