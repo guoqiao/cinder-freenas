@@ -4,8 +4,7 @@ import charmhelpers.core.hookenv as ch_hookenv  # noqa
 charms_openstack.charm.use_defaults('charm.default-select-release')
 
 
-class CinderFreeNASCharm(
-        charms_openstack.charm.CinderStoragePluginCharm):
+class CinderFreeNASCharm(charms_openstack.charm.CinderStoragePluginCharm):
 
     name = 'cinder_freenas'
     version_package = 'python-cinder-freenas'
