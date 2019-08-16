@@ -13,7 +13,10 @@ class CinderFreeNASCharm(
     packages = [version_package]
     stateless = True
     # Specify any config that the user *must* set.
-    mandatory_config = []
+    mandatory_config = [
+        'nas-login', 'nas-password',
+        'nas-server-hostname', 'nas-iqn-prefix',
+        'nas-datastore-pool']
 
     def cinder_configuration(self):
         volume_driver = 'cinder.volume.drivers.ixsystems.iscsi.FreeNASISCSIDriver'
