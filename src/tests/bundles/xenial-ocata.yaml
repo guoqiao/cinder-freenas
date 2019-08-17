@@ -42,6 +42,7 @@ applications:
     series: xenial
     charm: cinder-freenas
     options:
+      debug: true
       volume-dd-blocksize: 512
       nas-login: root
       nas-password: password
